@@ -5,8 +5,8 @@ template(name='layout')
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
 		ul.left
-			li: a Beranda
-			li: a Tentang
+			li: a(href='/') Beranda
+			li: a(href='/dokumen') Dokumen
 		a.brand-logo.center Bidang BLH
 		ul.right
 			li: a Login
@@ -22,7 +22,7 @@ template(name='home')
 				.row.center
 					h5.header.col.s12.white-text Melalui situs ini Anda akan mendapatkan banyak informasi tentang Bidang
 				.row.center
-					.btn-large.waves-effect.waves-light.teal.lighten-1 Daftar Dokumen
+					.btn-large.waves-effect.waves-light.grey.lighten-2.lighten-1 Daftar Dokumen
 		.parallax
 			img(src='http://materializecss.com/templates/parallax-template/background1.jpg')
 
@@ -47,3 +47,98 @@ template(name='home')
 							i.mdi.mdi-home
 						h5.center Speeds up development
 						p.light We did most of the heavy lifting for you to provide a default
+
+template(name='blog')
+	section.green.darken-3
+		.container
+			.row
+				.col.m9
+					h1.header.white-text Daftar Dokumen
+					.divider
+					h4.light.white-text Berisi daftar dokumen yang berhubungan dengan bidang
+			.row
+	.container
+		.row
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+			.col.m4
+				.card.grey.lighten-2
+					.card-content
+						.card-title Dokumen 1
+						p Isi dari dokumen 1
+					.card-action
+						a.blue-text Baca
+						a.green-text Unduh
+
+template(name='page')
+	.container
+		.row
+			.col.m12
+				.section
+					h2.header Material Design
+					span.mdi.mdi-home
+					span.blue-text 12 Jan 2017
+					.divider
+				p.flow-text contoh teks untuk masuk dalam paragraf

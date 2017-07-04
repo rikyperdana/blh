@@ -1,0 +1,49 @@
+template(name='layout')
+	+menu
+	+yield
+
+template(name='menu')
+	nav.green.darken-2: .nav-wrapper
+		ul.left
+			li: a Beranda
+			li: a Tentang
+		a.brand-logo.center Bidang BLH
+		ul.right
+			li: a Login
+			li: a Register
+
+template(name='home')
+	.parallax-container
+		.section.no-pad-bot
+			.container
+				br
+				br
+				h1.header.center.white-text Selamat Datang di Bidang BLH
+				.row.center
+					h5.header.col.s12.white-text Melalui situs ini Anda akan mendapatkan banyak informasi tentang Bidang
+				.row.center
+					.btn-large.waves-effect.waves-light.teal.lighten-1 Daftar Dokumen
+		.parallax
+			img(src='http://materializecss.com/templates/parallax-template/background1.jpg')
+
+	.container
+		.section
+			.row
+				.col.m4
+					.icon-block
+						h2.center.brown-text
+							i.mdi.mdi-home
+						h5.center Speeds up development
+						p.light We did most of the heavy lifting for you to provide a default
+				.col.m4
+					.icon-block
+						h2.center.brown-text
+							i.mdi.mdi-home
+						h5.center Speeds up development
+						p.light We did most of the heavy lifting for you to provide a default
+				.col.m4
+					.icon-block
+						h2.center.brown-text
+							i.mdi.mdi-home
+						h5.center Speeds up development
+						p.light We did most of the heavy lifting for you to provide a default

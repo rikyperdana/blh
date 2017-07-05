@@ -6,7 +6,8 @@ template(name='menu')
 	nav.green.darken-2: .nav-wrapper
 		ul.left
 			li: a(href='/') Beranda
-			li: a(href='/dokumen') Dokumen
+			li: a(href='/dokumen') Daftar Dokumen
+			li: a(href='/insert') Tambah Data
 		a.brand-logo.center Bidang BLH
 		ul.right
 			li: a Login
@@ -59,78 +60,16 @@ template(name='blog')
 			.row
 	.container
 		.row
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
-			.col.m4
-				.card.grey.lighten-2
-					.card-content
-						.card-title Dokumen 1
-						p Isi dari dokumen 1
-					.card-action
-						a.blue-text Baca
-						a.green-text Unduh
+			each datas
+				.col.m4
+					.card.grey.lighten-2
+						.card-content
+							.card-title= title
+							p= text
+						.card-action
+							a.blue-text Baca
+							a.red-text.right Hapus
+							a.green-text.right Ubah
 
 template(name='page')
 	.container
@@ -142,3 +81,14 @@ template(name='page')
 					span.blue-text 12 Jan 2017
 					.divider
 				p.flow-text contoh teks untuk masuk dalam paragraf
+
+template(name='insert')
+	.container
+		h3 Tambah Data Baru
+		.row
+		+quickForm(
+			collection = theColl
+			schema = theSchema
+			type = 'insert'
+			id = 'insertData'
+		)

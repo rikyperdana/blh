@@ -28,3 +28,6 @@ aldeed:autoform@=5.8.1
 dapearce:material-icons
 aramk:quill
 momentjs:moment
+cfs:standard-packages
+cfs:gridfs
+cfs:autoform

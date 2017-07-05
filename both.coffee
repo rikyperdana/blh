@@ -28,6 +28,10 @@ Router.route '/read/:id',
 	title: type: String, label: 'Judul Data'
 	date: type: Date, label: 'Tanggal Data'
 	text: type: String,	label: 'Isi Data', autoform: type: 'quill'
+	fileId:
+		type: String
+		optional:true
+		autoform: afFieldInput: type: 'cfs-file', collection: 'files'
 
 pages.attachSchema pageS
 
@@ -35,6 +39,18 @@ pages.allow
 	insert: -> true
 	update: -> true
 	remove: -> true
+
+@files = new Meteor.Collection 'files',
+	stores: [new FS.Store.GridFS 'filesStore']
+	filter:
+		maxSize: 1048576
+		allow: extensions: ['png']
+
+files.allow
+	insert: -> true
+	update: -> true
+	remove: -> true
+	fetch: null
 
 Meteor.methods
 	removePage: (id) ->

@@ -67,9 +67,9 @@ template(name='blog')
 							.card-title= title
 							p= text
 						.card-action
-							a.blue-text Baca
-							a.red-text.right Hapus
-							a.green-text.right Ubah
+							a.blue-text(href='/read/{{_id}}') Baca
+							a.red-text.right#remove Hapus
+							a.green-text.right(href='/edit/{{_id}}') Ubah
 
 template(name='page')
 	.container
@@ -84,11 +84,31 @@ template(name='page')
 
 template(name='insert')
 	.container
-		h3 Tambah Data Baru
+		h3 Tambah Data
 		.row
 		+quickForm(
-			collection = theColl
-			schema = theSchema
-			type = 'insert'
-			id = 'insertData'
+			collection= theColl
+			schema= theSchema
+			type= 'insert'
+			id= 'insertData'
 		)
+
+template(name='edit')
+	.container
+		h3 Ubah Data
+		.row
+		+quickForm(
+			collection= theColl
+			schema= theSchema
+			type= 'update'
+			id= 'updateData'
+			doc= data
+		)
+
+template(name='read')
+	.container
+		with data
+			h2= title
+			span.mdi.mdi-home
+			span= date
+			p.flow-text= text

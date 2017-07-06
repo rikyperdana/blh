@@ -1,5 +1,14 @@
 if Meteor.isClient
 
+	currentRoute = (cb) -> Router.current().route.getName()
+
+	Template.registerHelper 'showAdd', ->
+		Session.get 'showAdd'
+
+	Template.body.events
+		'click #showAdd': ->
+			Session.set 'showAdd', not Session.get 'showAdd'
+
 	Template.home.onRendered ->
 		$('.parallax').parallax()
 
@@ -15,13 +24,13 @@ if Meteor.isClient
 			selectYear: 15
 
 	Template.insert.helpers
-		theColl: -> pages
-		theSchema: -> pageS
+		theColl: -> coll[currentRoute (res) -> res]
+		theSchema: -> schema[currentRoute (res) -> res]
 
 	Template.blog.helpers
 		datas: ->
-			_.map pages.find().fetch(), (item) ->
-				item.text = item.text.replace /<(?:.|\n)*?>/gm, ''
+			_.map coll[currentRoute (res) -> res].find().fetch(), (item) ->
+				item.text = item.text[0..300].replace /<(?:.|\n)*?>/gm, ''
 				item
 
 	Template.blog.events
@@ -29,17 +38,18 @@ if Meteor.isClient
 			Meteor.call 'removePage', this._id
 
 	Template.edit.helpers
-		theColl: -> pages
-		theSchema: -> pageS
+		theColl: -> coll[currentRoute (res) -> res]
+		theSchema: -> schema[currentRoute (res) -> res]
 		data: ->
-			pages.findOne()
+			coll[currentRoute (res) -> res].findOne()
 
 	Template.read.helpers
 		data: ->
-			content = pages.findOne()
+			content = coll[currentRoute (res) -> res].findOne()
 			content.date = moment(content.date).format 'dddd Do MMM YY'
 			content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
 
-	AutoForm.addHooks null,	after: insert: -> Router.go '/dokumen'
+	AutoForm.addHooks null,	after: insert: (satu, dua, tiga) ->
+		console.log satu, dua, tiga
 

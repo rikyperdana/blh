@@ -4,10 +4,6 @@ Router.configure
 Router.route '/',
 	action: -> this.render 'home'
 
-Router.route '/dokumen',
-	action: -> this.render 'blog'
-	waitOn: -> Meteor.subscribe 'pages'
-
 Router.route '/halaman',
 	action: -> this.render 'page'
 
@@ -22,30 +18,33 @@ Router.route '/read/:id',
 	action: -> this.render 'read'
 	waitOn: -> Meteor.subscribe 'page', this.params.id
 
-@pages = new Meteor.Collection 'pages'
+@categories = ['rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
+@coll = []
+@schema = []
 
-@pageS = new SimpleSchema
-	title: type: String, label: 'Judul Data'
-	date: type: Date, label: 'Tanggal Data', autoform: class: 'datepicker'
-	text: type: String,	label: 'Isi Data', autoform: type: 'quill'
-	fileId:
-		type: String
-		optional:true
-		autoform: afFieldInput: type: 'cfs-file', collection: 'files'
+makeBoth = (category) ->
+	Router.route '/' + category,
+		action: -> this.render 'blog'
+		waitOn: -> Meteor.subscribe category
+	coll[category] = new Meteor.Collection category
+	coll[category].attachSchema
+		title: type: String, label: 'Judul Data'
+		date: type: Date, label: 'Tanggal Data'
+		text: type: String, label: 'Isi Data', autoform: type: 'quill'
+	coll[category].allow
+		insert: -> true
+		update: -> true
+		remove: -> true
+	if Meteor.isServer
+		Meteor.publish category, -> coll[category].find {}
 
-pages.attachSchema pageS
-
-pages.allow
-	insert: -> true
-	update: -> true
-	remove: -> true
+makeBoth i for i in categories
 
 @files = new Meteor.Collection 'files',
 	stores: [new FS.Store.GridFS 'filesStore']
 	filter:
 		maxSize: 1048576
 		allow: extensions: ['png']
-
 files.allow
 	insert: -> true
 	update: -> true
@@ -53,5 +52,5 @@ files.allow
 	fetch: null
 
 Meteor.methods
-	removePage: (id) ->
-		pages.remove id
+	removePage: (category, pageId) ->
+		category.remove _id: pageId

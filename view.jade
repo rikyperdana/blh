@@ -63,6 +63,7 @@ template(name='home')
 						p.light Ut tempus velit sed placerat convallis. Nam bibendum leo metus, vitae euismod justo semper vel. Nulla nec urna aliquet, laoreet neque sit amet, efficitur odio. Nulla leo massa, ultricies molestie bibendum sit amet, volutpat sed lectus. Aliquam volutpat, lectus vitae semper vestibulum, leo lacus fringilla lorem, id eleifend metus mi vitae turpis. Vivamus egestas erat ut arcu lobortis, sed rutrum purus pharetra. Pellentesque tempus erat in elit iaculis, viverra blandit velit finibus.
 
 template(name='blog')
+
 	section.green.darken-3
 		.container
 			.row
@@ -71,11 +72,16 @@ template(name='blog')
 					.divider
 					h4.light.white-text Berisi daftar dokumen yang berhubungan dengan bidang
 			.row
+
+	.container: .btn.right#showAdd Tambah
+	if showAdd
+		+insert
+
 	.container
 		.row
 			each datas
 				.col.m4
-					.card.grey.lighten-2
+					.card.grey.lighten-4
 						.card-content
 							.card-title= title
 							p= text

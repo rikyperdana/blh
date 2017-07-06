@@ -26,7 +26,7 @@ Router.route '/read/:id',
 
 @pageS = new SimpleSchema
 	title: type: String, label: 'Judul Data'
-	date: type: Date, label: 'Tanggal Data'
+	date: type: Date, label: 'Tanggal Data', autoform: class: 'datepicker'
 	text: type: String,	label: 'Isi Data', autoform: type: 'quill'
 	fileId:
 		type: String

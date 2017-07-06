@@ -3,6 +3,17 @@ if Meteor.isClient
 	Template.home.onRendered ->
 		$('.parallax').parallax()
 
+	Template.menu.onRendered ->
+		$('.dropdown-button').dropdown
+			constrainWidth: true
+			belowOrigin: true
+			hover: true
+
+	Template.insert.onRendered ->
+		$('.datepicker').pickadate
+			selectMonth: true
+			selectYear: 15
+
 	Template.insert.helpers
 		theColl: -> pages
 		theSchema: -> pageS

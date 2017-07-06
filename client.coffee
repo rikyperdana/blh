@@ -5,9 +5,14 @@ if Meteor.isClient
 	Template.registerHelper 'showAdd', ->
 		Session.get 'showAdd'
 
+	Template.registerHelper 'editData', ->
+		Session.get 'editData'
+
 	Template.body.events
 		'click #showAdd': ->
 			Session.set 'showAdd', not Session.get 'showAdd'
+		'click #close': ->
+			Session.set 'editData', null
 
 	Template.home.onRendered ->
 		$('.parallax').parallax()
@@ -17,11 +22,6 @@ if Meteor.isClient
 			constrainWidth: true
 			belowOrigin: true
 			hover: true
-
-	Template.insert.onRendered ->
-		$('.datepicker').pickadate
-			selectMonth: true
-			selectYear: 15
 
 	Template.insert.helpers
 		theColl: -> coll[currentRoute (res) -> res]
@@ -36,6 +36,9 @@ if Meteor.isClient
 	Template.blog.events
 		'click #remove': ->
 			Meteor.call 'removePage', this._id
+		'click #edit': ->
+			route = currentRoute (res) -> res
+			Session.set 'editData', coll[route].findOne _id: this._id
 
 	Template.edit.helpers
 		theColl: -> coll[currentRoute (res) -> res]

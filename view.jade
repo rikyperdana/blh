@@ -76,6 +76,8 @@ template(name='blog')
 	.container: .btn.right#showAdd Tambah
 	if showAdd
 		+insert
+	if editData
+		+edit
 
 	.container
 		.row
@@ -88,7 +90,7 @@ template(name='blog')
 						.card-action
 							a.blue-text(href='/read/{{_id}}') Baca
 							a.red-text.right#remove Hapus
-							a.green-text.right(href='/edit/{{_id}}') Ubah
+							a.green-text.right#edit Ubah
 
 template(name='page')
 	.container
@@ -123,6 +125,7 @@ template(name='edit')
 			id= 'updateData'
 			doc= data
 		)
+		.btn.right#close Tutup
 
 template(name='read')
 	.container

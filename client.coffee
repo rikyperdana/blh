@@ -35,7 +35,8 @@ if Meteor.isClient
 
 	Template.blog.events
 		'click #remove': ->
-			Meteor.call 'removePage', this._id
+			route = currentRoute (res) -> res
+			Meteor.call 'removePage', route, this._id
 		'click #edit': ->
 			route = currentRoute (res) -> res
 			Session.set 'editData', coll[route].findOne _id: this._id

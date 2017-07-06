@@ -53,4 +53,4 @@ files.allow
 
 Meteor.methods
 	removePage: (category, pageId) ->
-		category.remove _id: pageId
+		coll[category].remove _id: pageId

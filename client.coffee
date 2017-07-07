@@ -47,6 +47,7 @@ if Meteor.isClient
 		theColl: -> coll[currentRoute (res) -> res]
 		theSchema: -> schema[currentRoute (res) -> res]
 
+
 	Template.blog.helpers
 		datas: ->
 			_.map coll[currentRoute (res) -> res].find().fetch(), (item) ->
@@ -70,15 +71,21 @@ if Meteor.isClient
 		data: ->
 			coll[currentRoute (res) -> res].findOne()
 
+	Template.read.onRendered ->
+		$('.materialboxed').materialbox()
+
 	Template.read.helpers
 		data: ->
 			content = coll[currentRoute (res) -> res].findOne()
 			content.date = moment(content.date).format 'dddd Do MMM YY'
 			content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
+		file: ->
+			Meteor.subscribe 'file', Session.get('readData').fileId
+			files.findOne()
 
-	AutoForm.addHooks null,	after: insert: (satu, dua, tiga) ->
-		console.log satu, dua, tiga
+	AutoForm.addHooks null, after: insert: ->
+		Session.set 'showAdd', false
 
 	Meteor.startup ->
 		AccountsEntry.config

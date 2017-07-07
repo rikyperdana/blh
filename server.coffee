@@ -5,3 +5,6 @@ if Meteor.isServer
 
 	Meteor.publish 'page', (id) ->
 		pages.find {}
+
+	Meteor.publish 'file', (id) ->
+		files.find _id: id

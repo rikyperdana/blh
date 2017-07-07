@@ -81,7 +81,9 @@ template(name='blog')
 					h4.light.white-text Berisi daftar dokumen yang berhubungan dengan bidang
 			.row
 
-	.container: .btn.right#showAdd Tambah
+	unless editData
+		unless readData
+			.row: .container: .btn.right#showAdd Tambah
 	if showAdd
 		+insert
 	if editData
@@ -145,6 +147,10 @@ template(name='read')
 			span.mdi.mdi-home
 			span= date
 			p.flow-text= text
+		with file
+			span: b Unduh Data: 
+			a(href='{{url}}' target='_blank')= name
+			img.materialboxed(src='{{url}}' width='500')
 		.btn.right#close Tutup
 
 template(name='footer')

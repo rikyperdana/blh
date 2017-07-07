@@ -8,15 +8,25 @@ if Meteor.isClient
 	Template.registerHelper 'editData', ->
 		Session.get 'editData'
 
+	Template.registerHelper 'readData', ->
+		Session.get 'readData'
+
 	Template.registerHelper 'title', ->
 		route = currentRoute (res) -> res
 		route.toUpperCase()
+
+	Template.registerHelper 'formMode', ->
+		showAdd = Session.get 'showAdd'
+		editData = Session.get 'editData'
+		readData = Session.get 'readData'
+		true if showAdd or editData or readData
 
 	Template.body.events
 		'click #showAdd': ->
 			Session.set 'showAdd', not Session.get 'showAdd'
 		'click #close': ->
 			Session.set 'editData', null
+			Session.set 'readData', null
 
 	Template.home.onRendered ->
 		$('.parallax').parallax()
@@ -50,6 +60,9 @@ if Meteor.isClient
 		'click #edit': ->
 			route = currentRoute (res) -> res
 			Session.set 'editData', coll[route].findOne _id: this._id
+		'click #read': ->
+			route = currentRoute (res) -> res
+			Session.set 'readData', coll[route].findOne _id: this._id
 
 	Template.edit.helpers
 		theColl: -> coll[currentRoute (res) -> res]

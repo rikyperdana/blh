@@ -86,19 +86,22 @@ template(name='blog')
 		+insert
 	if editData
 		+edit
+	if readData
+		+read
 
-	.container
-		.row
-			each datas
-				.col.m4
-					.card.grey.lighten-4
-						.card-content
-							.card-title= title
-							p= text
-						.card-action
-							a.blue-text(href='/read/{{_id}}') Baca
-							a.red-text.right#remove Hapus
-							a.green-text.right#edit Ubah
+	unless formMode
+		.container
+			.row
+				each datas
+					.col.m4
+						.card.grey.lighten-4
+							.card-content
+								.card-title= title
+								p= text
+							.card-action
+								a.blue-text#read Baca
+								a.red-text.right#remove Hapus
+								a.green-text.right#edit Ubah
 
 template(name='page')
 	.container
@@ -142,6 +145,7 @@ template(name='read')
 			span.mdi.mdi-home
 			span= date
 			p.flow-text= text
+		.btn.right#close Tutup
 
 template(name='footer')
 	footer.page-footer.green.darken-2

@@ -8,6 +8,10 @@ if Meteor.isClient
 	Template.registerHelper 'editData', ->
 		Session.get 'editData'
 
+	Template.registerHelper 'title', ->
+		route = currentRoute (res) -> res
+		route.toUpperCase()
+
 	Template.body.events
 		'click #showAdd': ->
 			Session.set 'showAdd', not Session.get 'showAdd'
@@ -22,6 +26,12 @@ if Meteor.isClient
 			constrainWidth: true
 			belowOrigin: true
 			hover: true
+
+	Template.menu.helpers
+		loggedIn: ->
+			true if Meteor.userId()
+		userEmail: ->
+			Meteor.user().emails[0].address
 
 	Template.insert.helpers
 		theColl: -> coll[currentRoute (res) -> res]
@@ -57,3 +67,8 @@ if Meteor.isClient
 	AutoForm.addHooks null,	after: insert: (satu, dua, tiga) ->
 		console.log satu, dua, tiga
 
+	Meteor.startup ->
+		AccountsEntry.config
+			homeRoute: '/'
+			dashboardRoute: '/'
+			waitEmailVerification: false

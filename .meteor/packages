@@ -33,3 +33,6 @@ cfs:gridfs
 cfs:autoform
 gwendall:body-events
 session
+underscorestring:underscore.string
+accounts-password
+selaias:accounts-entry

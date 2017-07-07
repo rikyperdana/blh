@@ -18,7 +18,7 @@ Router.route '/read/:id',
 	action: -> this.render 'read'
 	waitOn: -> Meteor.subscribe 'page', this.params.id
 
-@categories = ['rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
+@categories = ['pages', 'rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
 @coll = []
 @schema = []
 

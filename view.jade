@@ -1,6 +1,11 @@
 template(name='layout')
-	+menu
-	+yield
+	body
+		header
+			+menu
+		main
+			+yield
+		footer
+			+footer
 
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
@@ -11,20 +16,23 @@ template(name='menu')
 			li: a.dropdown-button(data-activates='menuDokumen') Dokumen
 		a.brand-logo.center Bidang Penaatan & Penataan Lingkungan BLH
 		ul.right
-			li: a Kontak
-			li: a Login
-			li: a Register
+			li: a= userEmail
+			unless loggedIn
+				li: a(href='/sign-in') Login
+				li: a(href='/sign-up') Register
+			if loggedIn
+				li: a(href='/sign-out') Logout
 	ul.green.darken-2.dropdown-content#menuTentang
 		li: a.white-text Profil
 	ul.green.darken-2.dropdown-content#menuPeraturan
-		li: a.white-text RPPLH
-		li: a.white-text KLHS
+		li: a.white-text(href='/rpplh') RPPLH
+		li: a.white-text(href='/klhs') KLHS
 	ul.green.darken-2.dropdown-content#menuDokumen
-		li: a.white-text SLHD
-		li: a.white-text Pengaduan
-		li: a.white-text Amdal
-		li: a.white-text UKL UPL
-		li: a.white-text Perizinan
+		li: a.white-text(href='/slhd') SLHD
+		li: a.white-text(href='/pengaduan') Pengaduan
+		li: a.white-text(href='/amdal') Amdal
+		li: a.white-text(href='/uklupl') UKL UPL
+		li: a.white-text(href='/perizinan') Perizinan
 
 template(name='home')
 	.parallax-container
@@ -68,7 +76,7 @@ template(name='blog')
 		.container
 			.row
 				.col.m9
-					h1.header.white-text Daftar Dokumen
+					h1.header.white-text Daftar Dokumen {{title}}
 					.divider
 					h4.light.white-text Berisi daftar dokumen yang berhubungan dengan bidang
 			.row
@@ -134,3 +142,20 @@ template(name='read')
 			span.mdi.mdi-home
 			span= date
 			p.flow-text= text
+
+template(name='footer')
+	footer.page-footer.green.darken-2
+		.container
+			.row
+				.col.l6.s12
+					h5.white-text Kontak Dinas
+					p.white-text You can use rows and columns here to organize your footer content
+				.col.l4.offset-l2.s12
+					h5.white-text Alamat Lainnya
+					ul
+						li: a.white-text Link 1
+						li: a.white-text Link 2
+		.footer-copyright
+			.container
+				span 2017 Hak Cipta Milik Dinas Lingkungan Hidup & Kehutanan Provinsi Riau
+				a.white-text.right More Links

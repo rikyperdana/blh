@@ -11,7 +11,7 @@ if Meteor.isClient
 	Template.registerHelper 'readData', ->
 		Session.get 'readData'
 
-	Template.registerHelper 'title', ->
+	Template.registerHelper 'categoryTitle', ->
 		route = currentRoute (res) -> res
 		route.toUpperCase()
 
@@ -61,22 +61,21 @@ if Meteor.isClient
 		'click #edit': ->
 			route = currentRoute (res) -> res
 			Session.set 'editData', coll[route].findOne _id: this._id
-		'click #read': ->
-			route = currentRoute (res) -> res
-			Session.set 'readData', coll[route].findOne _id: this._id
+		'click #read': (event) ->
+			Session.set 'readData', this
 
 	Template.edit.helpers
 		theColl: -> coll[currentRoute (res) -> res]
 		theSchema: -> schema[currentRoute (res) -> res]
 		data: ->
-			coll[currentRoute (res) -> res].findOne()
+			Session.get 'editData', this
 
 	Template.read.onRendered ->
 		$('.materialboxed').materialbox()
 
 	Template.read.helpers
 		data: ->
-			content = coll[currentRoute (res) -> res].findOne()
+			content = Session.get 'readData'
 			content.date = moment(content.date).format 'dddd Do MMM YY'
 			content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
@@ -84,8 +83,11 @@ if Meteor.isClient
 			Meteor.subscribe 'file', Session.get('readData').fileId
 			files.findOne()
 
-	AutoForm.addHooks null, after: insert: ->
-		Session.set 'showAdd', false
+	AutoForm.addHooks null, after:
+		insert: ->
+			Session.set 'showAdd', false
+		update: ->
+			Session.set 'editData', null
 
 	Meteor.startup ->
 		AccountsEntry.config

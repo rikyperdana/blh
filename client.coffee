@@ -57,7 +57,15 @@ if Meteor.isClient
 	Template.blog.events
 		'click #remove': ->
 			route = currentRoute (res) -> res
-			Meteor.call 'removePage', route, this._id
+			data = this
+			dialog =
+				message: 'Are you sure?'
+				title: 'Confirmation'
+				okText: 'Ok'
+				success: true
+				focus: 'cancel'
+			confirmRemove = new Confirmation dialog, (ok) ->
+				if ok then Meteor.call 'removePage', route, data._id
 		'click #edit': ->
 			route = currentRoute (res) -> res
 			Session.set 'editData', coll[route].findOne _id: this._id

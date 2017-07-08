@@ -7,17 +7,6 @@ Router.route '/',
 Router.route '/halaman',
 	action: -> this.render 'page'
 
-Router.route '/insert',
-	action: -> this.render 'insert'
-
-Router.route '/edit/:id',
-	action: -> this.render 'edit'
-	waitOn: -> Meteor.subscribe 'page', this.params.id
-
-Router.route '/read/:id',
-	action: -> this.render 'read'
-	waitOn: -> Meteor.subscribe 'page', this.params.id
-
 @categories = ['pages', 'rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
 @coll = []
 @schema = []

@@ -38,10 +38,8 @@ if Meteor.isClient
 			hover: true
 
 	Template.menu.helpers
-		loggedIn: ->
-			true if Meteor.userId()
-		userEmail: ->
-			Meteor.user().emails[0].address
+		loggedIn: -> true if Meteor.userId()
+		userEmail: -> Meteor.user().emails[0].address
 
 	Template.insert.helpers
 		theColl: -> coll[currentRoute (res) -> res]
@@ -68,15 +66,14 @@ if Meteor.isClient
 				if ok then Meteor.call 'removePage', route, data._id
 		'click #edit': ->
 			route = currentRoute (res) -> res
-			Session.set 'editData', coll[route].findOne _id: this._id
+			Session.set 'editData', this
 		'click #read': (event) ->
 			Session.set 'readData', this
 
 	Template.edit.helpers
 		theColl: -> coll[currentRoute (res) -> res]
 		theSchema: -> schema[currentRoute (res) -> res]
-		data: ->
-			Session.get 'editData', this
+		data: -> Session.get 'editData', this
 
 	Template.read.onRendered ->
 		$('.materialboxed').materialbox()
@@ -92,10 +89,8 @@ if Meteor.isClient
 			files.findOne()
 
 	AutoForm.addHooks null, after:
-		insert: ->
-			Session.set 'showAdd', false
-		update: ->
-			Session.set 'editData', null
+		insert: -> Session.set 'showAdd', false
+		update: -> Session.set 'editData', null
 
 	Meteor.startup ->
 		AccountsEntry.config

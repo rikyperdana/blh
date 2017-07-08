@@ -2,14 +2,11 @@ if Meteor.isClient
 
 	currentRoute = (cb) -> Router.current().route.getName()
 
-	Template.registerHelper 'showAdd', ->
-		Session.get 'showAdd'
-
-	Template.registerHelper 'editData', ->
-		Session.get 'editData'
-
-	Template.registerHelper 'readData', ->
-		Session.get 'readData'
+	Template.registerHelper 'showAdd', -> Session.get 'showAdd'
+	Template.registerHelper 'editData', -> Session.get 'editData'
+	Template.registerHelper 'readData', -> Session.get 'readData'
+	Template.registerHelper 'theColl', -> coll[currentRoute (res) -> res]
+	Template.registerHelper 'theSchema', -> schema[currentRoute (res) -> res]
 
 	Template.registerHelper 'categoryTitle', ->
 		route = currentRoute (res) -> res
@@ -41,11 +38,6 @@ if Meteor.isClient
 		loggedIn: -> true if Meteor.userId()
 		userEmail: -> Meteor.user().emails[0].address
 
-	Template.insert.helpers
-		theColl: -> coll[currentRoute (res) -> res]
-		theSchema: -> schema[currentRoute (res) -> res]
-
-
 	Template.blog.helpers
 		datas: ->
 			_.map coll[currentRoute (res) -> res].find().fetch(), (item) ->
@@ -53,26 +45,21 @@ if Meteor.isClient
 				item
 
 	Template.blog.events
+		'click #edit': -> Session.set 'editData', this
+		'click #read': -> Session.set 'readData', this
 		'click #remove': ->
 			route = currentRoute (res) -> res
 			data = this
 			dialog =
-				message: 'Are you sure?'
-				title: 'Confirmation'
-				okText: 'Ok'
+				message: 'Yakin hapus data?'
+				title: 'Konfirmasi'
+				okText: 'Ya'
 				success: true
 				focus: 'cancel'
 			confirmRemove = new Confirmation dialog, (ok) ->
 				if ok then Meteor.call 'removePage', route, data._id
-		'click #edit': ->
-			route = currentRoute (res) -> res
-			Session.set 'editData', this
-		'click #read': (event) ->
-			Session.set 'readData', this
 
 	Template.edit.helpers
-		theColl: -> coll[currentRoute (res) -> res]
-		theSchema: -> schema[currentRoute (res) -> res]
 		data: -> Session.get 'editData', this
 
 	Template.read.onRendered ->

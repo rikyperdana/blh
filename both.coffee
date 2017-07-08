@@ -1,11 +1,9 @@
 Router.configure
 	layoutTemplate: 'layout'
+	loadingTemplate: 'loading'
 
 Router.route '/',
 	action: -> this.render 'home'
-
-Router.route '/halaman',
-	action: -> this.render 'page'
 
 @categories = ['pages', 'rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
 @coll = []

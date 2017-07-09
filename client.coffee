@@ -21,8 +21,9 @@ if Meteor.isClient
 
 	Template.body.events
 		'click #showAdd': ->
-			Session.set 'showAdd', not Session.get 'showAdd'
+			Session.set 'showAdd', true
 		'click #close': ->
+			Session.set 'showAdd', false
 			Session.set 'editData', null
 			Session.set 'readData', null
 

@@ -7,6 +7,7 @@ if Meteor.isClient
 	Template.registerHelper 'readData', -> Session.get 'readData'
 	Template.registerHelper 'theColl', -> coll[currentRoute (res) -> res]
 	Template.registerHelper 'theSchema', -> schema[currentRoute (res) -> res]
+	Template.registerHelper 'loggedIn', -> true if Meteor.userId()
 
 	Template.registerHelper 'categoryTitle', ->
 		route = currentRoute (res) -> res
@@ -35,7 +36,6 @@ if Meteor.isClient
 			hover: true
 
 	Template.menu.helpers
-		loggedIn: -> true if Meteor.userId()
 		userEmail: -> Meteor.user().emails[0].address
 
 	Template.blog.helpers

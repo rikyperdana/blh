@@ -83,7 +83,8 @@ template(name='blog')
 			.row
 
 	unless formMode
-		.row: .container: .btn.right#showAdd Tambah
+		if loggedIn
+			.row: .container: .btn.right#showAdd Tambah
 	if showAdd
 		+insert
 	if editData

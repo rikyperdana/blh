@@ -11,7 +11,8 @@ if Meteor.isClient
 
 	Template.registerHelper 'categoryTitle', ->
 		route = currentRoute (res) -> res
-		route.toUpperCase()
+		objek = _.findWhere categories, name: route
+		objek.title
 
 	Template.registerHelper 'formMode', ->
 		showAdd = Session.get 'showAdd'

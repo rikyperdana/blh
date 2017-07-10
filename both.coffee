@@ -5,7 +5,76 @@ Router.configure
 Router.route '/',
 	action: -> this.render 'home'
 
-@categories = ['pages', 'rpplh', 'klhs', 'slhd', 'pengaduan', 'amdal', 'uklupl', 'perizinan']
+@categories = [
+	name: 'struktur', title: 'Struktur Organisasi'
+,
+	name: 'tupoksi', title: 'Tugas dan Fungsi'
+,
+	name: 'dddtlh', title: 'Daya Dukung dan Daya Tampung Lingkungan Hidup (DDDTHL)'
+,
+	name: 'rpplh', title: 'Rencana Perlindungan dan Pengelolaan Lingkungan Hidup (RPPLH)'
+,
+	name: 'klhs', title: 'Kajian Lingkungan Hidup Strategis (KLHS)'
+,
+	name: 'dpilkp', title: 'Daftar Penerbitan Izin Lingkungan (Kewenangan Provinsi)'
+,
+	name: 'ppkp', title: 'Profil Pemrakarsa (Kewenangan Provinsi)'
+,
+	name: 's1-2016', title: 'Semester I 2016'
+,
+	name: 's2-2016', title: 'Semester II 2016'
+,
+	name: 's1-2017', title: 'Semester I 2017'
+,
+	name: 's2-2017', title: 'Semester II 2017'
+,
+	name: 's1-2018', title: 'Semester I 2018'
+,
+	name: 's2-2018', title: 'Semester II 2018'
+,
+	name: 's1-2019', title: 'Semester I 2019'
+,
+	name: 's2-2019', title: 'Semester II 2019'
+,
+	name: 'slhd2009', title: 'SLHD 2009'
+,
+	name: 'slhd2010', title: 'SLHD 2010'
+,
+	name: 'slhd2011', title: 'SLHD 2011'
+,
+	name: 'slhd2012', title: 'SLHD 2012'
+,
+	name: 'slhd2013', title: 'SLHD 2013'
+,
+	name: 'slhd2014', title: 'SLHD 2014'
+,
+	name: 'slhd2015', title: 'SLHD 2015'
+,
+	name: 'slhd2016', title: 'SLHD 2016'
+,
+	name: 'dikplhd2017', title: 'DIKPLHD Tahun 2017'
+,
+	name: 'dikplhd2018', title: 'DIKPLHD Tahun 2018'
+,
+	name: 'dikplhd2019', title: 'DIKPLHD Tahun 2019'
+,
+	name: 'lakprpplh2017', title: 'Laporan Akhir Kegiatan Penyusunan Rencana Perlindungan dan Pengelolaan Lingkungan Hidup (RPPLH) Riau (2017)'
+,
+	name: 'lakaklhskab2017', title: 'Laporan Akhir Kegiatan Asistensi KLHS Kabupaten/Kota (2017)'
+,
+	name: 'lakpppamdal2017', title: 'Laporan Akhir Kegiatan Penilaian, Pembinaan dan Pengawasan AMDAL (2017)'
+,
+	name: 'lakpslhdbslhd2017', title: 'Laporan Akhir Kegiatan Penyusunan Status Lingkungan Hidup Daerah dan Buku Statistik Lingkungan Hidup Daerah (2017)'
+,
+	name: 'lakppklh2017', title: 'Laporan Akhir Kegiatan Penataan dan Penanganan Kasus Lingkungan Hidup (2017)'
+,
+	name: 'lakpppktpk2017', title: 'Laporan Akhir Kegiatan Penanganan dan Penyelesaian Perkara/Kasus Tindak Pidana Kehutanan (2017)'
+,
+	name: 'lakoptpk2017', title: 'Laporan Akhir Kegiatan Operasi Pemberantasan Tindak Pidana Kehutanan (2017)'
+,
+	name: 'lakpspspkppns2017', title: 'Laporan Akhir Kegiatan Pengadaan Sarana dan Prasarana Satuan Polisi Kehutanan dan PPNS (2017)'
+]
+
 @coll = []
 @schema = []
 
@@ -22,11 +91,11 @@ files.allow
 	fetch: null
 
 makeBoth = (category) ->
-	Router.route '/' + category,
+	Router.route '/' + category.name,
 		action: -> this.render 'blog'
-		waitOn: -> Meteor.subscribe category
-	coll[category] = new Meteor.Collection category
-	coll[category].attachSchema
+		waitOn: -> Meteor.subscribe category.name
+	coll[category.name] = new Meteor.Collection category.name
+	coll[category.name].attachSchema
 		title: type: String, label: 'Judul Data'
 		date: type: Date, label: 'Tanggal Data'
 		text: type: String, label: 'Isi Data', autoform: type: 'quill'
@@ -37,12 +106,12 @@ makeBoth = (category) ->
 				afFieldInput:
 					type: 'cfs-file'
 					collection: 'files'
-	coll[category].allow
+	coll[category.name].allow
 		insert: -> true
 		update: -> true
 		remove: -> true
 	if Meteor.isServer
-		Meteor.publish category, -> coll[category].find {}
+		Meteor.publish category.name, -> coll[category.name].find {}
 
 makeBoth i for i in categories
 

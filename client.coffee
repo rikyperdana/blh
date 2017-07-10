@@ -39,6 +39,11 @@ if Meteor.isClient
 
 	Template.menu.helpers
 		userEmail: -> Meteor.user().emails[0].address
+		menuProfil: -> categories[0..1]
+		menuPerLing: -> categories[2..4]
+		menuKajDamLing: -> categories[5..14]
+		menuLaporan: -> categories[15..35]
+		menuDownload: -> categories[36..47]
 
 	Template.blog.helpers
 		datas: ->

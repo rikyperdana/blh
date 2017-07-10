@@ -73,6 +73,32 @@ Router.route '/',
 	name: 'lakoptpk2017', title: 'Laporan Akhir Kegiatan Operasi Pemberantasan Tindak Pidana Kehutanan (2017)'
 ,
 	name: 'lakpspspkppns2017', title: 'Laporan Akhir Kegiatan Pengadaan Sarana dan Prasarana Satuan Polisi Kehutanan dan PPNS (2017)'
+,
+	name: 'pkl', title: 'Pengaduan Kasus Lingkungan'
+,
+	name: 'phl', title: 'Penegakan Hukum Lingkungan'
+,
+	name: 'uu', title: 'Undang-undang'
+,
+	name: 'permen', title: 'Peraturan Menteri'
+,
+	name: 'perpres', title: 'Peraturan Presiden'
+,
+	name: 'kepres', title: 'Keputusan Presiden'
+,
+	name: 'perda', title: 'Peraturan Daerah'
+,
+	name: 'pergub', title: 'Peraturan Gubernur'
+,
+	name: 'kepgub', title: 'Keputusan Gubernur'
+,
+	name: 'semen', title: 'Surat Edaran Menteri'
+,
+	name: 'segub', title: 'Surat Edaran Gubernur'
+,
+	name: 'kak', title: 'Kerangka Acuan Kerja'
+,
+	name: 'sop', title: 'Standar Operasional Prosedur'
 ]
 
 @coll = []
@@ -91,11 +117,11 @@ files.allow
 	fetch: null
 
 makeBoth = (category) ->
-	Router.route '/' + category.name,
+	Router.route '/' + category,
 		action: -> this.render 'blog'
-		waitOn: -> Meteor.subscribe category.name
-	coll[category.name] = new Meteor.Collection category.name
-	coll[category.name].attachSchema
+		waitOn: -> Meteor.subscribe category
+	coll[category] = new Meteor.Collection category
+	coll[category].attachSchema
 		title: type: String, label: 'Judul Data'
 		date: type: Date, label: 'Tanggal Data'
 		text: type: String, label: 'Isi Data', autoform: type: 'quill'
@@ -106,14 +132,14 @@ makeBoth = (category) ->
 				afFieldInput:
 					type: 'cfs-file'
 					collection: 'files'
-	coll[category.name].allow
+	coll[category].allow
 		insert: -> true
 		update: -> true
 		remove: -> true
 	if Meteor.isServer
-		Meteor.publish category.name, -> coll[category.name].find {}
+		Meteor.publish category, -> coll[category].find {}
 
-makeBoth i for i in categories
+makeBoth i.name for i in categories
 
 Meteor.methods
 	removePage: (category, pageId) ->

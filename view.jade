@@ -11,29 +11,34 @@ template(name='layout')
 
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
-		ul.left
-			li: a(href='/') Beranda
-			li: a.dropdown-button(data-activates='menuTentang') Tentang
-			li: a.dropdown-button(data-activates='menuPeraturan') Peraturan
-			li: a.dropdown-button(data-activates='menuDokumen') Dokumen
-		a.brand-logo.center Bidang Penaatan & Penataan Lingkungan BLH
+		a.brand-logo BLH Riau
 		ul.right
+			li: a(href='/') Beranda
+			li: a.dropdown-button(data-activates='menu1') Profil
+			li: a.dropdown-button(data-activates='menu2') Perencanaan Lingkungan
+			li: a.dropdown-button(data-activates='menu3') Kajian Dampak Lingkungan
+			li: a.dropdown-button(data-activates='menu4') Laporan Lingkungan
+			li: a.dropdown-button(data-activates='menu5') Download Dokumen
 			li: a= userEmail
 			unless loggedIn
 				li: a(href='/sign-in') Login
 			if loggedIn
 				li: a(href='/sign-out') Logout
-	ul.green.darken-2.dropdown-content#menuTentang
-		li: a.white-text Profil
-	ul.green.darken-2.dropdown-content#menuPeraturan
-		li: a.white-text(href='/rpplh') RPPLH
-		li: a.white-text(href='/klhs') KLHS
-	ul.green.darken-2.dropdown-content#menuDokumen
-		li: a.white-text(href='/slhd') SLHD
-		li: a.white-text(href='/pengaduan') Pengaduan
-		li: a.white-text(href='/amdal') Amdal
-		li: a.white-text(href='/uklupl') UKL UPL
-		li: a.white-text(href='/perizinan') Perizinan
+	ul.green.darken-2.dropdown-content#menu1
+		each val in menuProfil
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu2
+		each val in menuPerLing
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu3
+		each val in menuKajDamLing
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu4
+		each val in menuLaporan
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu5
+		each val in menuDownload
+			li: a.white-text(href=val.name)= val.title
 
 template(name='home')
 	.parallax-container
@@ -77,9 +82,9 @@ template(name='blog')
 		.container
 			.row
 				.col.m9
-					h1.header.white-text Halaman {{categoryTitle}}
+					h4.header.white-text Halaman {{categoryTitle}}
 					.divider
-					h4.light.white-text Berisi daftar dokumen yang berhubungan dengan {{categoryTitle}}
+					h6.light.white-text Berisi daftar dokumen yang berhubungan dengan {{categoryTitle}}
 			.row
 
 	unless formMode

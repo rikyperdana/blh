@@ -31,13 +31,32 @@ template(name='menu')
 		each val in menuPerLing
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu3
-		each val in menuKajDamLing
+		li: a.white-text: b Menu Amdal
+		each val in menuAmdal
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu Semester
+		each val in menuSemester
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu4
-		each val in menuLaporan
+		li: a.white-text: b Menu SLHD
+		each val in menuSlhd
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu DIKPLHD
+		each val in menuDikplhd
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu LAK
+		each val in menuLak
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu5
-		each val in menuDownload
+		li: a.white-text: b Menu Peraturan
+		each val in menuPeraturan
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu S. Edaran
+		each val in menuSe
 			li: a.white-text(href=val.name)= val.title
 
 template(name='home')

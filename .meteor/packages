@@ -30,8 +30,7 @@ aramk:quill
 momentjs:moment
 cfs:standard-packages
 cfs:gridfs
-cfs:autoform
-cfs:ui
+yogiben:autoform-file
 gwendall:body-events
 session
 underscorestring:underscore.string

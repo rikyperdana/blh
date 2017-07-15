@@ -35,7 +35,7 @@ makeBoth = (category) ->
 			optional: true
 			autoform:
 				afFieldInput:
-					type: 'cfs-file'
+					type: 'fileUpload'
 					collection: 'files'
 	coll[category].allow
 		insert: -> true

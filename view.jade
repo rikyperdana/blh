@@ -177,7 +177,8 @@ template(name='read')
 		each files
 			span: i.mdi.mdi-download
 			a(href= url target='_blank')= name
-			img.materialboxed(src= url width='500')
+			if isImage
+				img.materialboxed(src= url width='500')
 		.btn.right#close Tutup
 
 template(name='footer')

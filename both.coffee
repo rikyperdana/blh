@@ -11,8 +11,8 @@ Router.route '/',
 @files = new FS.Collection 'files',
 	stores: [new FS.Store.GridFS 'filesStore']
 	filter:
-		maxSize: 1048576
-		allow: extensions: ['png']
+		maxSize: 21234567
+		allow: extensions: ['png', 'pdf']
 files.allow
 	insert: -> true
 	update: -> true

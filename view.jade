@@ -174,7 +174,7 @@ template(name='read')
 			span: i.mdi.mdi-calendar
 			span= date
 			p.flow-text= text
-		with file
+		each files
 			span: i.mdi.mdi-download
 			a(href= url target='_blank')= name
 			img.materialboxed(src= url width='500')

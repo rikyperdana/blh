@@ -82,9 +82,10 @@ if Meteor.isClient
 			content.date = moment(content.date).format 'dddd Do MMM YY'
 			content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
-		file: ->
-			Meteor.subscribe 'file', Session.get('readData').fileId
-			files.findOne()
+		files: ->
+			for i in Session.get('readData').files
+				Meteor.subscribe 'files', i
+			files.find().fetch()
 
 	AutoForm.addHooks null, after:
 		insert: -> Session.set 'showAdd', false

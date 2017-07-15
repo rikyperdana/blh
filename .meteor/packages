@@ -31,6 +31,7 @@ momentjs:moment
 cfs:standard-packages
 cfs:gridfs
 cfs:autoform
+cfs:ui
 gwendall:body-events
 session
 underscorestring:underscore.string

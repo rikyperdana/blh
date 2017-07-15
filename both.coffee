@@ -49,3 +49,6 @@ makeBoth i.name for i in categories
 Meteor.methods
 	removePage: (category, pageId) ->
 		coll[category].remove _id: pageId
+
+	removeFile: (fileId) ->
+		files.remove _id: fileId

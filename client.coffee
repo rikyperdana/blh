@@ -68,7 +68,10 @@ if Meteor.isClient
 				success: true
 				focus: 'cancel'
 			confirmRemove = new Confirmation dialog, (ok) ->
-				if ok then Meteor.call 'removePage', route, data._id
+				if ok
+					Meteor.call 'removePage', route, data._id
+					for i in data.files
+						Meteor.call 'removeFile', i
 
 	Template.edit.helpers
 		data: -> Session.get 'editData', this
@@ -84,7 +87,7 @@ if Meteor.isClient
 			content
 		files: ->
 			for i in Session.get('readData').files
-				Meteor.subscribe 'files', i
+				Meteor.subscribe 'file', i
 			files.find().fetch()
 
 	AutoForm.addHooks null, after:

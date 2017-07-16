@@ -12,7 +12,7 @@ Router.route '/',
 	stores: [new FS.Store.GridFS 'filesStore']
 	filter:
 		maxSize: 21234567
-		allow: extensions: ['png', 'pdf']
+		allow: extensions: ['png', 'jpg', 'pdf']
 files.allow
 	insert: -> true
 	update: -> true
@@ -29,7 +29,7 @@ makeBoth = (category) ->
 		title: type: String, label: 'Judul Data'
 		date: type: Date, label: 'Tanggal Data'
 		text: type: String, label: 'Isi Data', autoform: type: 'quill'
-		files: type: [String]
+		files: type: [String], label: 'Lampiran'
 		'files.$':
 			type: String
 			optional: true

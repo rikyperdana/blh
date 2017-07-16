@@ -74,7 +74,7 @@ if Meteor.isClient
 						Meteor.call 'removeFile', i
 
 	Template.edit.helpers
-		data: -> Session.get 'editData', this
+		data: -> Session.get 'editData'
 
 	Template.read.onRendered ->
 		$('.materialboxed').materialbox()

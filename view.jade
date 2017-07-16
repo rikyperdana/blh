@@ -126,21 +126,10 @@ template(name='blog')
 								.card-title= title
 								p= text
 							.card-action
-								a.blue-text#read Baca
+								a.blue-text#read(href='#') Baca
 								if loggedIn
-									a.red-text.right#remove Hapus
-									a.green-text.right#edit Ubah
-
-template(name='page')
-	.container
-		.row
-			.col.m12
-				.section
-					h2.header Material Design
-					span.mdi.mdi-home
-					span.blue-text 12 Jan 2017
-					.divider
-				p.flow-text contoh teks untuk masuk dalam paragraf
+									a.red-text.right#remove(href='#') Hapus
+									a.green-text.right#edit(href='#') Ubah
 
 template(name='insert')
 	.container
@@ -174,12 +163,13 @@ template(name='read')
 			span: i.mdi.mdi-calendar
 			span= date
 			p.flow-text= text
-		each files
-			span: i.mdi.mdi-download
-			a(href= url target='_blank')= name
-			if isImage
-				img.materialboxed(src= url width='500')
-			br
+		ul.collection.with-header
+			li.collection-header: h6 Daftar Lampiran
+			each files
+				li.collection-item
+					a(href= url target='_blank')= name
+					if isImage
+						img.materialboxed(src= url width='500')
 		.btn.right#close Tutup
 
 template(name='footer')

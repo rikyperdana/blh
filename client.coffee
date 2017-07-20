@@ -45,9 +45,9 @@ if Meteor.isClient
 		menuSemester: -> categories[7..14]
 		menuSlhd: -> categories[15..22]
 		menuDikplhd: -> categories[23..25]
-		menuLak: -> categories[26..35]
-		menuPeraturan: -> categories[36..43]
-		menuSe: -> categories[44..47]
+		menuLak: -> categories[26..34]
+		menuPeraturan: -> categories[35..44]
+		kakSop: -> categories[45..46]
 
 	Template.blog.helpers
 		datas: (one, two)->

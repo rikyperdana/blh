@@ -17,7 +17,7 @@ template(name='menu')
 			li: a.dropdown-button(data-activates='menu1') Profil
 			li: a.dropdown-button(data-activates='menu2') Perencanaan Lingkungan
 			li: a.dropdown-button(data-activates='menu3') Kajian Dampak Lingkungan
-			li: a.dropdown-button(data-activates='menu4') Laporan Lingkungan
+			li: a.dropdown-button(data-activates='menu4') L a p o r a n
 			li: a.dropdown-button(data-activates='menu5') Download Dokumen
 			li: a= userEmail
 			unless loggedIn
@@ -55,8 +55,8 @@ template(name='menu')
 		each val in menuPeraturan
 			li: a.white-text(href=val.name)= val.title
 		li.divider
-		li: a.white-text: b Menu S. Edaran
-		each val in menuSe
+		li: a.white-text: b KAK & SOP
+		each val in kakSop
 			li: a.white-text(href=val.name)= val.title
 
 template(name='home')

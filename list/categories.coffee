@@ -67,17 +67,17 @@
 ,
 	name: 'lakpspspkppns2017', title: 'Laporan Akhir Kegiatan Pengadaan Sarana dan Prasarana Satuan Polisi Kehutanan dan PPNS (2017)'
 ,
-	name: 'pkl', title: 'Pengaduan Kasus Lingkungan'
-,
-	name: 'phl', title: 'Penegakan Hukum Lingkungan'
+	name: 'pkphl', title: 'Pengaduan Kasus dan Penegakan Hukum Lingkungan'
 ,
 	name: 'uu', title: 'Undang-undang'
 ,
-	name: 'permen', title: 'Peraturan Menteri'
+	name: 'pp', title: 'Peraturan Pemerintah'
 ,
 	name: 'perpres', title: 'Peraturan Presiden'
 ,
 	name: 'kepres', title: 'Keputusan Presiden'
+,
+	name: 'permen', title: 'Peraturan Menteri'
 ,
 	name: 'perda', title: 'Peraturan Daerah'
 ,

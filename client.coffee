@@ -50,9 +50,9 @@ if Meteor.isClient
 		menuSe: -> categories[44..47]
 
 	Template.blog.helpers
-		datas: ->
+		datas: (one, two)->
 			_.map coll[currentRoute (res) -> res].find().fetch(), (item) ->
-				item.text = item.text[0..300].replace /<(?:.|\n)*?>/gm, ''
+				item.short = item.text[0..300].replace /<(?:.|\n)*?>/gm, ''
 				item
 
 	Template.blog.events
@@ -83,7 +83,7 @@ if Meteor.isClient
 		data: ->
 			content = Session.get 'readData'
 			content.date = moment(content.date).format 'dddd Do MMM YY'
-			content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
+			# content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
 		files: ->
 			for i in Session.get('readData').files

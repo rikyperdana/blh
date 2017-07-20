@@ -124,7 +124,7 @@ template(name='blog')
 						.card.grey.lighten-4
 							.card-content
 								.card-title= title
-								p= text
+								p= short
 							.card-action
 								a.blue-text#read(href='#') Baca
 								if loggedIn
@@ -162,7 +162,7 @@ template(name='read')
 			h2= title
 			span: i.mdi.mdi-calendar
 			span= date
-			p.flow-text= text
+			p.flow-text: {{{text}}}
 		ul.collection.with-header
 			li.collection-header: h6 Daftar Lampiran
 			each files

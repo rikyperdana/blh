@@ -29,7 +29,7 @@ makeBoth = (category) ->
 		title: type: String, label: 'Judul Data'
 		date: type: Date, label: 'Tanggal Data'
 		text: type: String, label: 'Isi Data', autoform: type: 'quill'
-		files: type: [String], label: 'Lampiran'
+		files: type: [String], label: 'Lampiran', optional: true
 		'files.$':
 			type: String
 			optional: true

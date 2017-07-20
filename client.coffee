@@ -83,7 +83,6 @@ if Meteor.isClient
 		data: ->
 			content = Session.get 'readData'
 			content.date = moment(content.date).format 'dddd Do MMM YY'
-			# content.text = content.text.replace /<(?:.|\n)*?>/gm, ''
 			content
 		files: ->
 			for i in Session.get('readData').files

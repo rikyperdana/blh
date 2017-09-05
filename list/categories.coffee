@@ -1,73 +1,19 @@
 @categories = [
-	name: 'struktur', title: 'Struktur Organisasi'
+	name: 'dddtlh', title: 'Daya Dukung dan Daya Tampung Lingkungan Hidup (DDDTLH)', desc: 'Daya dukung lingkungan hidup adalah kemampuan lingkungan hidup untuk mendukung perikehidupan manusia, makhluk hidup lain, dan keseimbangan antara keduanya. Daya tampung lingkungan hidup adalah kemampuan lingkungan hidup untuk menyerap zat, energi, dan/atau komponen lain yang masuk atau dimasukkan ke dalamnya. Daya dukung dan daya tampung lingkungan hidup ditetapkan dengan tujuan untuk dimanfaatkan sebagai: 1. Acuan pemanfaatan sumber daya alam; 2. Muatan rencana perlindungan dan pengelolaan lingkungan hidup; 3. Muatan kajian lingkungan hidup strategis; 4. Indikator pada instrumen pengendalian lingungan hidup; 5. Informasi pengambilan keputusan pembangunan sebagaimana diamanatkan peraturan perundangan. Daya Dukung dan daya tampung lingkungan hidup meliputi: 1. Daya dukung dan daya tampung lingkungan hidup nasional dan pulau/kepulauan; 2. Daya dukung dan daya tampung lingkungan hidup provinsi dan wilayah ekoregion yang mencakup lintas kabupaten/kota; 3. Daya dukung dandaya tampung lingkungan hidup kabupaten/kota dan wilayah ekoregion yang tercakup dalam wilayah kabupaten/kota. Tahapan penetapan daya dukung dan daya tampung lingkungan hidup meliputi: 1. Pengukuran daya dukun dan daya tampung dan/atau penentuan nilai indeks daya dukung dan daya tampung lingkungan hidup; 2. Pnentuan status daya dukung dan daya tampung lingkungan hidup. '
 ,
-	name: 'tupoksi', title: 'Tugas dan Fungsi'
+	name: 'rpplh', title: 'Rencana Perlindungan dan Pengelolaan Lingkungan Hidup (RPPLH)', desc: 'Adalah rangkaian analisis yang sistematis, menyeluruh, dan partisipatif untuk memastikan bahwa prinsip Pembangunan Berkelanjutan telah menjadi dasar dan terintegrasi dalam pembangunan suatu wilayah dan/atau Kebijakan, Rencana, dan/atau Program(KRP). RPPLH Privinsi dan Kabupaten/Kota diamanatkan dalam Pasal 9 dan Pasal 10 Undang-Undang Nomor 32 Tahun 2009 tentang Perlindungan dan Pengelolaan Lingkungan Hidup. Selaint itu, pasal 12 ayat (2) huruf e dan lampiran pada angka I huruk K baris ke-1 Undang-undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah juga mengamanahkan penyusunan RPPLH. Menindaklanjuti ketentuan peraturan perundangan tersebut di atas dan untuk melengkapi tatalaksana dan panduan RPPLH tingkat Provinsi dan Kabupaten/Kota, Kementerian LHKRI menerbitkan Surat Edaran (SE) Menteri LHK RI Nomor SE.5/Menlhk/PKTL/PLA.3/11/2016 tanggal 11 November 2016 sebagai panduan umum sesuai kewenangannya. RPPLH selanjutnya ditetapkan dengan Peraturan Daerah Provinsi/Kabupaten/Kota; 3. Penetapan dya dukung dan daya tampung lingkungan hidup'
 ,
-	name: 'dddtlh', title: 'Daya Dukung dan Daya Tampung Lingkungan Hidup (DDDTHL)'
+	name: 'klhs', title: 'Kajian Lingkungan Hidup Strategis (KLHS)', desc: 'Adalah rangkaian analisis yang sistematis, menyeluruh,  dan partisipatif untuk memastikan bahwa prinsip Pembangunan Berkelanjutan telah menjadi dasar dan terintegrasi dalam pembangunan suatu wilayah dan/atau Kebijakan, Rencana, dan/atau Program(KRP). Apabila prinsip-prinsip Pembangunan Berkelanjutan telah dipertimbangkan dan diintegrasikan dalam KRP pembangunan, maka diharapkan kemungkinan terjadinya dampak atau resiko Lingkungan Hidup dapat dihindari atau diminimalkan. Menindak lanjuti ketentuan Pasal 18 Undang-undang Nomor 32 Tahun 2009 tentang Perlindungan dan Pengelolaan Lingkungan Hidup, Pemerintah telah menetapkan Peraturan pemerintah Nomor 46 Tahun 2016 tentang Tata Cara Penyelenggaraan Kajian Lingkungan Hidup Strategis, yang selanjutnya disingkat dengan KLHS. Pada pasal 2. Peraturan Pemerintah tersebut ditetapkan bahwa Pemerintah Pusat dan Pemerintah Daerah WAJIB membuat KLHS, dalam penyusunan atau evaluasi RTRW beserta rencana rincinya, RPJPN/D, RPJMN/D, dan KRP pembangunan yang berpotensi menimbulkan dampak dan/atau resiko lingkungan hidup.'
 ,
-	name: 'rpplh', title: 'Rencana Perlindungan dan Pengelolaan Lingkungan Hidup (RPPLH)'
+	name: 'dpilkp', title: 'Amdal UKL/UPL/Izin Lingkungan'
 ,
-	name: 'klhs', title: 'Kajian Lingkungan Hidup Strategis (KLHS)'
+	name: 's2-2016', title: 'Laporan Semester'
 ,
-	name: 'dpilkp', title: 'Daftar Penerbitan Izin Lingkungan (Kewenangan Provinsi)'
+	name: 'slhd', title: 'SLHD / DIKPLHD'
 ,
-	name: 'ppkp', title: 'Profil Pemrakarsa (Kewenangan Provinsi)'
+	name: 'dikplhd', title: 'Dokumen Informasi Kinerja Pengelolaan Lingkungan Hidup Daerah'
 ,
-	name: 's1-2016', title: 'Semester I 2016'
-,
-	name: 's2-2016', title: 'Semester II 2016'
-,
-	name: 's1-2017', title: 'Semester I 2017'
-,
-	name: 's2-2017', title: 'Semester II 2017'
-,
-	name: 's1-2018', title: 'Semester I 2018'
-,
-	name: 's2-2018', title: 'Semester II 2018'
-,
-	name: 's1-2019', title: 'Semester I 2019'
-,
-	name: 's2-2019', title: 'Semester II 2019'
-,
-	name: 'slhd2009', title: 'SLHD 2009'
-,
-	name: 'slhd2010', title: 'SLHD 2010'
-,
-	name: 'slhd2011', title: 'SLHD 2011'
-,
-	name: 'slhd2012', title: 'SLHD 2012'
-,
-	name: 'slhd2013', title: 'SLHD 2013'
-,
-	name: 'slhd2014', title: 'SLHD 2014'
-,
-	name: 'slhd2015', title: 'SLHD 2015'
-,
-	name: 'slhd2016', title: 'SLHD 2016'
-,
-	name: 'dikplhd2017', title: 'DIKPLHD Tahun 2017'
-,
-	name: 'dikplhd2018', title: 'DIKPLHD Tahun 2018'
-,
-	name: 'dikplhd2019', title: 'DIKPLHD Tahun 2019'
-,
-	name: 'lakprpplh2017', title: 'Laporan Akhir Kegiatan Penyusunan Rencana Perlindungan dan Pengelolaan Lingkungan Hidup (RPPLH) Riau (2017)'
-,
-	name: 'lakaklhskab2017', title: 'Laporan Akhir Kegiatan Asistensi KLHS Kabupaten/Kota (2017)'
-,
-	name: 'lakpppamdal2017', title: 'Laporan Akhir Kegiatan Penilaian, Pembinaan dan Pengawasan AMDAL (2017)'
-,
-	name: 'lakpslhdbslhd2017', title: 'Laporan Akhir Kegiatan Penyusunan Status Lingkungan Hidup Daerah dan Buku Statistik Lingkungan Hidup Daerah (2017)'
-,
-	name: 'lakppklh2017', title: 'Laporan Akhir Kegiatan Penataan dan Penanganan Kasus Lingkungan Hidup (2017)'
-,
-	name: 'lakpppktpk2017', title: 'Laporan Akhir Kegiatan Penanganan dan Penyelesaian Perkara/Kasus Tindak Pidana Kehutanan (2017)'
-,
-	name: 'lakoptpk2017', title: 'Laporan Akhir Kegiatan Operasi Pemberantasan Tindak Pidana Kehutanan (2017)'
-,
-	name: 'lakpspspkppns2017', title: 'Laporan Akhir Kegiatan Pengadaan Sarana dan Prasarana Satuan Polisi Kehutanan dan PPNS (2017)'
-,
-	name: 'pkphl', title: 'Pengaduan Kasus dan Penegakan Hukum Lingkungan'
+	name: 'lak', title: 'Laporan Akhir Kegiatan'
 ,
 	name: 'uu', title: 'Undang-undang'
 ,
@@ -79,17 +25,35 @@
 ,
 	name: 'permen', title: 'Peraturan Menteri'
 ,
+	name: 'kepmen', title: 'Keputusan Menteri'
+,
 	name: 'perda', title: 'Peraturan Daerah'
 ,
-	name: 'pergub', title: 'Peraturan Gubernur'
+	name: 'pergub', title: 'Peraturan/Keputusan Gubernur'
 ,
-	name: 'kepgub', title: 'Keputusan Gubernur'
+	name: 'semen', title: 'Surat Edaran'
 ,
-	name: 'semen', title: 'Surat Edaran Menteri'
+	name: 'kaksop', title: 'KAK & SOP'
 ,
-	name: 'segub', title: 'Surat Edaran Gubernur'
-,
-	name: 'kak', title: 'Kerangka Acuan Kerja'
-,
-	name: 'sop', title: 'Standar Operasional Prosedur'
+]
+
+hidden = [
+#	name: 'struktur', title: 'Struktur Organisasi'
+#,
+#	name: 'tupoksi', title: 'Tugas dan Fungsi'
+#,
+#	name: 's1-2016', title: 'Laporan Semester I 2016'
+#,
+#	name: 's2-2017', title: 'Laporan Semester II 2017'
+#,
+#	name: 's1-2018', title: 'Laporan Semester I 2018'
+#,
+#	name: 's2-2018', title: 'Laporan Semester II 2018'
+#,
+#	name: 's1-2019', title: 'Laporan Semester I 2019'
+#,
+#	name: 's2-2019', title: 'Laporan Semester II 2019'
+#,
+#	name: 'pkphl', title: 'Pengaduan Kasus dan Penegakan Hukum Lingkungan'
+#,
 ]

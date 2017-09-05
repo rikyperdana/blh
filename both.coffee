@@ -2,8 +2,9 @@ Router.configure
 	layoutTemplate: 'layout'
 	loadingTemplate: 'loading'
 
-Router.route '/',
-	action: -> this.render 'home'
+Router.route '/', action: -> this.render 'home'
+Router.route '/struktur', action: -> this.render 'struktur'
+Router.route '/tupoksi', action: -> this.render 'tupoksi'
 
 @coll = []
 @schema = []

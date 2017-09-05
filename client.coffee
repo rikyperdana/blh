@@ -9,10 +9,8 @@ if Meteor.isClient
 	Template.registerHelper 'theSchema', -> schema[currentRoute (res) -> res]
 	Template.registerHelper 'loggedIn', -> true if Meteor.userId()
 
-	Template.registerHelper 'categoryTitle', ->
-		route = currentRoute (res) -> res
-		objek = _.findWhere categories, name: route
-		objek.title
+	Template.registerHelper 'category', ->
+		_.findWhere categories, name: currentRoute (res) -> res
 
 	Template.registerHelper 'formMode', ->
 		showAdd = Session.get 'showAdd'
@@ -39,17 +37,17 @@ if Meteor.isClient
 
 	Template.menu.helpers
 		userEmail: -> Meteor.user().emails[0].address
-		menuProfil: -> categories[0..1]
-		menuPerLing: -> categories[2..4]
-		menuAmdal: -> categories[5..6]
-		menuSemester: -> categories[7..14]
-		menuSlhd: -> categories[15..22]
-		menuDikplhd: -> categories[23..25]
-		menuLak: -> categories[26..34]
-		menuPeraturan: -> categories[35..44]
-		kakSop: -> categories[45..46]
+		menuPerLing: -> categories[0..2]
+		menuAmdal: -> categories[3..3]
+		menuSemester: -> categories[4..4]
+		menuSlhd: -> categories[5..5]
+		menuDikplhd: -> categories[6..6]
+		menuLak: -> categories[7..7]
+		menuPeraturan: -> categories[8..16]
+		kakSop: -> categories[17..17]
 
 	Template.blog.helpers
+		routeIs: (name) -> Router.current().route.getName() is name
 		datas: (one, two)->
 			_.map coll[currentRoute (res) -> res].find().fetch(), (item) ->
 				item.short = item.text[0..300].replace /<(?:.|\n)*?>/gm, ''
@@ -72,6 +70,9 @@ if Meteor.isClient
 					Meteor.call 'removePage', route, data._id
 					for i in data.files
 						Meteor.call 'removeFile', i
+		'click #expand': (event)->
+			$('.truncate').removeClass 'truncate'
+			$('#expand').addClass 'hide'
 
 	Template.edit.helpers
 		data: -> Session.get 'editData'

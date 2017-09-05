@@ -11,7 +11,7 @@ template(name='layout')
 
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
-		a.brand-logo BLH Riau
+		a.brand-logo Dinas Lingkungan Hidup dan Kehutanan Provinsi Riau
 		ul.right
 			li: a(href='/') Beranda
 			li: a.dropdown-button(data-activates='menu1') Profil
@@ -25,29 +25,20 @@ template(name='menu')
 			if loggedIn
 				li: a(href='/sign-out') Logout
 	ul.green.darken-2.dropdown-content#menu1
-		each val in menuProfil
-			li: a.white-text(href=val.name)= val.title
+		li: a.white-text(href='/struktur') Struktur Organisasi
+		li: a.white-text(href='/tupoksi') Tugas dan Fungsi
 	ul.green.darken-2.dropdown-content#menu2
 		each val in menuPerLing
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu3
-		li: a.white-text: b Menu Amdal
 		each val in menuAmdal
 			li: a.white-text(href=val.name)= val.title
-		li.divider
-		li: a.white-text: b Menu Semester
 		each val in menuSemester
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu4
-		li: a.white-text: b Menu SLHD
 		each val in menuSlhd
 			li: a.white-text(href=val.name)= val.title
 		li.divider
-		li: a.white-text: b Menu DIKPLHD
-		each val in menuDikplhd
-			li: a.white-text(href=val.name)= val.title
-		li.divider
-		li: a.white-text: b Menu LAK
 		each val in menuLak
 			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu5
@@ -55,7 +46,6 @@ template(name='menu')
 		each val in menuPeraturan
 			li: a.white-text(href=val.name)= val.title
 		li.divider
-		li: a.white-text: b KAK & SOP
 		each val in kakSop
 			li: a.white-text(href=val.name)= val.title
 
@@ -67,7 +57,7 @@ template(name='home')
 				br
 				h1.header.center.white-text Selamat Datang di Bidang Penaatan & Penataan Lingkungan Hidup dan Kehutanan
 				.row.center
-					h5.header.col.s12.white-text Melalui situs ini Anda akan mendapatkan banyak informasi tentang Bidang
+					h5.header.col.s12.white-text Melalui portal ini Anda akan mendapatkan informasi tentang Bidang
 				.row.center
 					a.btn-large.waves-effect.waves-light.green(href='/dokumen') Daftar Dokumen
 		.parallax
@@ -76,19 +66,19 @@ template(name='home')
 	.container
 		.section
 			.row
-				.col.m4
+				.col.m12
 					.icon-block
 						h2.center.blue-text.text-darken-2
 							i.mdi.mdi-account-multiple
 						h5.center Tentang Bidang
 						p.light Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dictum porttitor leo, eget tempus quam mollis eget. In vitae erat ante. Suspendisse at dictum nisi, id porta dolor. Nulla sagittis risus sed tellus fermentum tempus. Suspendisse potenti. Quisque mollis ante risus, quis condimentum sem tincidunt molestie. Nam eu gravida enim, quis facilisis turpis.
-				.col.m4
+				.col.m4.hide
 					.icon-block
 						h2.center.orange-text.text-darken-2
 							i.mdi.mdi-file-document
 						h5.center Kumpulan Dokumen Bidang
 						p.light Nullam in metus nec velit volutpat consectetur. Sed sagittis, sem nec sodales scelerisque, dui nisl imperdiet massa, eget molestie eros purus malesuada augue. Nunc interdum felis nec enim venenatis scelerisque. Suspendisse potenti. Etiam et dui risus. Nulla et arcu pulvinar, volutpat lacus vel, tincidunt nulla. Praesent vestibulum sed velit vel posuere.
-				.col.m4
+				.col.m4.hide
 					.icon-block
 						h2.center.purple-text.text-darken-2
 							i.mdi.mdi-bank
@@ -101,14 +91,19 @@ template(name='blog')
 		.container
 			.row
 				.col.m9
-					h4.header.white-text Halaman {{categoryTitle}}
+					h4.header.white-text= category.title
 					.divider
-					h6.light.white-text Berisi daftar dokumen yang berhubungan dengan {{categoryTitle}}
+					h6.light.white-text.truncate= category.desc
+					span.white-text#expand ...lanjut
 			.row
 
 	unless formMode
 		if loggedIn
 			.row: .container: .btn.right#showAdd Tambah
+		if routeIs 'slhd'
+			unless loggedIn
+				.row: .container: .btn.right#showAdd Tambah
+
 	if showAdd
 		+insert
 	if editData
@@ -177,13 +172,13 @@ template(name='footer')
 		.container
 			.row
 				.col.l6.s12
-					h5.white-text Kontak Dinas
-					p.white-text You can use rows and columns here to organize your footer content
+					h5.white-text Kontak Bidang
+					p.white-text Email: bidpplhkdlhkriau@gmail.com
 				.col.l4.offset-l2.s12
-					h5.white-text Alamat Lainnya
+					h5.white-text Alamat Terkait
 					ul
-						li: a.white-text Link 1
-						li: a.white-text Link 2
+						li: a.white-text(href='http://175.184.234.138/p3es/beranda') P3ES (Pusat Pengendalian Pembangunan Ekoregion Sumatra)
+						li: a.white-text(href='http://menlhk.go.id') Kementerian LHK RI
 		.footer-copyright
 			.container
 				span 2017 Hak Cipta Milik Dinas Lingkungan Hidup & Kehutanan Provinsi Riau
@@ -191,3 +186,8 @@ template(name='footer')
 
 template(name='loading')
 	.container: .progress.center: .indeterminate
+
+template(name='struktur'): .container
+	h5 Struktur Organisasi
+template(name='tupoksi')
+	h5 Tugas dan Fungsi

@@ -11,11 +11,9 @@ template(name='layout')
 
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
-		a.brand-logo Dinas Lingkungan Hidup dan Kehutanan Provinsi Riau
+		a.brand-logo Dinas LHK Prov. Riau
 		ul.right
 			li: a(href='/') Beranda
-			li: a.dropdown-button(data-activates='menu1') Profil
-			li: a.dropdown-button(data-activates='menu2') Perencanaan Lingkungan
 			li: a.dropdown-button(data-activates='menu3') Kajian Dampak Lingkungan
 			li: a.dropdown-button(data-activates='menu4') L a p o r a n
 			li: a.dropdown-button(data-activates='menu5') Download Dokumen
@@ -24,14 +22,10 @@ template(name='menu')
 				li: a(href='/sign-in') Login
 			if loggedIn
 				li: a(href='/sign-out') Logout
-	ul.green.darken-2.dropdown-content#menu1
-		li: a.white-text(href='/struktur') Struktur Organisasi
-		li: a.white-text(href='/tupoksi') Tugas dan Fungsi
-	ul.green.darken-2.dropdown-content#menu2
-		each val in menuPerLing
-			li: a.white-text(href=val.name)= val.title
 	ul.green.darken-2.dropdown-content#menu3
 		each val in menuAmdal
+			li: a.white-text(href=val.name)= val.title
+		each val in menuPerLing
 			li: a.white-text(href=val.name)= val.title
 		each val in menuSemester
 			li: a.white-text(href=val.name)= val.title
@@ -55,7 +49,7 @@ template(name='home')
 			.container
 				br
 				br
-				h1.header.center.white-text Selamat Datang di Bidang Penaatan & Penataan Lingkungan Hidup dan Kehutanan
+				h3.header.center.white-text Selamat Datang di Bidang Penaatan & Penataan Lingkungan Hidup dan Kehutanan
 				.row.center
 					h5.header.col.s12.white-text Melalui portal ini Anda akan mendapatkan informasi tentang Bidang
 				.row.center
@@ -71,7 +65,7 @@ template(name='home')
 						h2.center.blue-text.text-darken-2
 							i.mdi.mdi-account-multiple
 						h5.center Tentang Bidang
-						p.light Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dictum porttitor leo, eget tempus quam mollis eget. In vitae erat ante. Suspendisse at dictum nisi, id porta dolor. Nulla sagittis risus sed tellus fermentum tempus. Suspendisse potenti. Quisque mollis ante risus, quis condimentum sem tincidunt molestie. Nam eu gravida enim, quis facilisis turpis.
+						p.light Bidang Penaatan dan Penataan Lingkungan Hidup dan Kehutanan Provinsi Riau (PPLHK) dibentuk berdasarkan Peraturan Gubernur Riau Nomor 74 Tahun 2016 tentang Kedudukan, Susunan Organisasi, Tugas, dan Fungsi, serta Tata Kerja Dinas Lingkungan Hidup Provinsi Riau. Bidang PPLHK dipimpinn oleh seorang Kepala Bidang, terdiri dari 3 (tiga) seksi, yang masing-masing dipimpin oleh seorang Kepala Seksi, yaitu Seksi Perencanaan dan Kajian Dampak Lingkungan, Seksi Pengaduan dan Penyelesaian Sengketa, dan Seksi Penegakan Hukum.
 				.col.m4.hide
 					.icon-block
 						h2.center.orange-text.text-darken-2

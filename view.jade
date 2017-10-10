@@ -11,36 +11,55 @@ template(name='layout')
 
 template(name='menu')
 	nav.green.darken-2: .nav-wrapper
-		a.brand-logo Dinas LHK Prov. Riau
+		a.brand-logo(href='/') Dinas LHK Riau
 		ul.right
-			li: a(href='/') Beranda
-			li: a.dropdown-button(data-activates='menu3') Kajian Dampak Lingkungan
-			li: a.dropdown-button(data-activates='menu4') L a p o r a n
-			li: a.dropdown-button(data-activates='menu5') Download Dokumen
-			li: a= userEmail
+			li: a.dropdown-button(data-activates='menu1') Kajian Dampak Lingkungan
+			li: a.dropdown-button(data-activates='menu2') L a p o r a n
+			li: a.dropdown-button(data-activates='menu3') Download Dokumen
+			li: a.dropdown-button(data-activates='menu4') Izin Perusahaan
+			li: a.dropdown-button(data-activates='menu5') Standar Op. Prosedur
+			li: a.dropdown-button(data-activates='menu6') Penanganan Pengaduan
 			unless loggedIn
 				li: a(href='/sign-in') Login
 			if loggedIn
-				li: a(href='/sign-out') Logout
-	ul.green.darken-2.dropdown-content#menu3
+				li: a(href='/sign-out')= userEmail
+	ul.green.darken-2.dropdown-content#menu1
 		each val in menuAmdal
 			li: a.white-text(href=val.name)= val.title
 		each val in menuPerLing
 			li: a.white-text(href=val.name)= val.title
 		each val in menuSemester
 			li: a.white-text(href=val.name)= val.title
-	ul.green.darken-2.dropdown-content#menu4
+	ul.green.darken-2.dropdown-content#menu2
 		each val in menuSlhd
 			li: a.white-text(href=val.name)= val.title
 		li.divider
 		each val in menuLak
 			li: a.white-text(href=val.name)= val.title
-	ul.green.darken-2.dropdown-content#menu5
+	ul.green.darken-2.dropdown-content#menu3
 		li: a.white-text: b Menu Peraturan
 		each val in menuPeraturan
 			li: a.white-text(href=val.name)= val.title
 		li.divider
 		each val in kakSop
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu4
+		li: a.white-text: b Menu Izin
+		each val in izin
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu Kinerja
+		each val in kinerja
+			li: a.white-text(href=val.name)= val.title
+		li.divider
+		li: a.white-text: b Menu Lapor
+		each val in lapor
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu5
+		each val in sop
+			li: a.white-text(href=val.name)= val.title
+	ul.green.darken-2.dropdown-content#menu6
+		each val in aduan
 			li: a.white-text(href=val.name)= val.title
 
 template(name='home')

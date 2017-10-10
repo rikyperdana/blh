@@ -35,6 +35,47 @@
 ,
 	name: 'kaksop', title: 'KAK & SOP'
 ,
+
+# Menu pak nelson
+	name: 'izin1', title: 'Data Izin Lingkungan'
+,
+	name: 'izin2', title: 'Izin Pembuangan Air Limbah'
+,
+	name: 'izin3', title: 'Izin Pemanfaatan Air Limbah'
+,
+	name: 'izin4', title: 'Izin Pengelolaan Limbah B3'
+,
+	name: 'kinerja1', title: 'Berita Acara Pengawasan'
+,
+	name: 'kinerja2', title: 'Tindak Lanjut Hasil Pengawasan'
+,
+	name: 'kinerja3', title: 'Kinerja Pengelolaan Lingkungan Hidup Perusahaan'
+,
+	name: 'lapor1', title: 'Laporan Pelaksanaan Izin Lingkungan'
+,
+	name: 'lapor2', title: 'Laporan Pelaksanaan Izin Pembuangan Air Limbah'
+,
+	name: 'lapor3', title: 'Laporan Pelaksanaan Izin Pemanfaatan Air Limbah'
+,
+	name: 'lapor4', title: 'Laporan Pelaksanaan Izin Pengelolaan Limbah B3'
+,
+	name: 'lapor5', title: 'Laporan Pelaksanaan Pengendalian Kebakaran Hutan dan Lahan'
+,
+	name: 'lapor6', title: 'Pelaporan Perizinan Lingkungan Oleh Usahan / Kegiatan'
+,
+	name: 'sop1', title: 'Penerbitan Izin Lingkungan'
+,
+	name: 'sop2', title: 'Pengawasan Izin Lingkungan'
+,
+	name: 'sop3', title: 'Penanganan Pengaduan'
+,
+	name: 'sop4', title: 'Penerbitan Rekomendasi dan Izin Pengumpulan Limbah B3'
+,
+	name: 'aduan1', title: 'Data Laporan Pengaduan Lingkungan Hidup'
+,
+	name: 'aduan2', title: 'Data Hasil Penanganan Pengaduan Lingkungan Hidup'
+,
+	name: 'aduan3', title: 'Laporan Pengaduan Oleh Masyarakat'
 ]
 
 hidden = [

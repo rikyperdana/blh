@@ -1,0 +1,44 @@
+Aplikasi Pengawasan Monitoring Evaluasi dan Pelaporan Perizinan Lingkungan
+
+User: (privat)
+- Pimpinan
+- Kabid
+- Kasi
+- Pengawas
+User: (publik)
+- Perusahaan
+- Umum
+
+1. Data Perizinan Lingkungan
+- Data Dokumen dan izin lingkungan
+- izin pembuangan air limbah
+- izin pemanfaatan air limbah
+- izin pengelolaan limbah b3
+
+2. SOP
+- penerbitan izin lingkungan
+- Pengawasan izin lingkungan
+- penanganan pengaduan
+- penerbitan rekomendasi dan izin pengumpulan limbah b3
+
+3. Kinerja Pengawasan Perizinan Lingkungan (privat)
+- Berita acara pengawasan
+- tindak lanjut hasil pengawasan
+- kinerja pengelolaan lingkungan hidup perusahaan
+
+4. Pelaporan (privat)
+- Laporan pelaksanaan izin lingkungan
+- Laporan pelaksanaan izin pembuangan air limbah
+- laporan pelaksanaan izin pemanfaatan air limbah
+- laporan pelaksanaan izin pengelolaan limbah b3
+- laporan pelaksanaan pengendalian kebakaran hutan dan lahan
+- pelaporan perizinan lingkungan oleh usaha / kegiatan (open crud)
+
+5. Penanganan Pengaduan
+- data laporan pengaduan lingkungan hidup
+- data hasil penanganan pengaduan lingkungan hidup
+- laporan pengaduan oleh masyarakat (open crud)
+
+menu pt: 1, 3, 4
+menu sop: 2
+menu adu: 5

@@ -44,12 +44,11 @@ if Meteor.isClient
 		menuDikplhd: -> categories[6..6]
 		menuLak: -> categories[7..7]
 		menuPeraturan: -> categories[8..16]
-		kakSop: -> categories[17..17]
-		izin: -> categories[18..21]
-		kinerja: -> categories[22..24]
-		lapor: -> categories[25..30]
-		sop: -> categories[31..34]
-		aduan: -> categories[35..37]
+		izin: -> categories[17..20]
+		kinerja: -> categories[21..23]
+		lapor: -> categories[24..29]
+		sop: -> categories[30..33]
+		aduan: -> categories[34..36]
 
 	Template.blog.helpers
 		routeIs: (name) -> Router.current().route.getName() is name

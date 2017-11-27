@@ -33,10 +33,9 @@
 ,
 	name: 'semen', title: 'Surat Edaran'
 ,
-	name: 'kaksop', title: 'KAK & SOP'
-,
-
 # Menu pak nelson
+	name: 'perusahaan', title: 'Daftar Perusahaan', desc: 'Halaman ini memuat daftar perusahaan berikut dokumen dan laporan perizinan lingkungan yang dimiliki'
+,
 	name: 'izin1', title: 'Data Izin Lingkungan'
 ,
 	name: 'izin2', title: 'Izin Pembuangan Air Limbah'
